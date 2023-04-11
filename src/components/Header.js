@@ -1,9 +1,14 @@
 import React from "react";
 import "./Header.css";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import NotListedLocationIcon from "@mui/icons-material/NotListedLocation";
+import SearchIcon from "@material-ui/icons/Search";
 import RoomIcon from "@mui/icons-material/Room";
+import { useNavigate } from "react-router-dom";
 function Header() {
+  const navigate = useNavigate();
+  const handlenavClick = () => {
+    navigate("/login");
+  };
   return (
     <div className="header">
       <div className="header__logo">
@@ -12,7 +17,7 @@ function Header() {
         <span className="header__logoImage">⤻</span>
       </div>
       <div className="header-address">
-        <NotListedLocationIcon className="location-icon" />
+        <RoomIcon className="location-icon" />
         <div className="nav__item">
           <span className="nav__itemLineOne">Hello</span>
           <span className="nav__itemLineTwo">Select your address</span>
@@ -28,7 +33,7 @@ function Header() {
           className="header__searchInput"
           placeholder="Search Amazon.in"
         />
-        <RoomIcon className="header__searchIcon" />
+        <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
         <div className="nav__item">
@@ -38,7 +43,9 @@ function Header() {
           </select>
         </div>
         <div className="nav__item">
-          <span className="nav__itemLineOne">Hello, sign in</span>
+          <span className="nav__itemLineOne login" onClick={handlenavClick}>
+            Hello, sign in
+          </span>
           <span className="nav__itemLineTwo">Account & Lists</span>
         </div>
         <div className="nav__item">
